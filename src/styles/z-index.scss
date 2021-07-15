@@ -1,0 +1,34 @@
+@function z-index($keys) {
+  $collection: $z-indexes;
+  $found-index: null;
+
+  @each $key in $keys {
+      @if type-of($collection) == "map" {
+          $collection: reverse($collection);
+
+          $found-index: index(map-keys($collection), $key);
+
+          $collection: map-get($collection, $key);
+      }
+      @else if type-of($collection) == "list" {
+          $found-index: index(reverse($collection), $key);
+      }
+
+      @if $found-index == null {
+          @error "'#{$key}' is not a valid key or does not exist in the collection";
+      }
+  }
+
+  @return $found-index;
+}
+
+/*
+*  Accepts a list of stacking contexts from the
+*  map above and returns the appropriate z-index.
+*
+*  For example:
+*  z-index: z(calculator, input-wrapper, mask);
+*/
+@function z($keys...) {
+  @return z-index($keys);
+}

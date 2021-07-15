@@ -1,22 +1,26 @@
+@import "../../styles/z-index-util.scss";
+
 .header {
   display: flex;
   justify-content: center;
   margin: 40px auto;
   text-align: center;
-}
+  position: relative;
+  z-index: z(header);
 
-  .logo-container {
+  &__container {
     display: inline-block;
     transition: transform 0.4s ease-in-out;
-  }
 
-  .logo-container:hover {
-    transform: translateY(150%) scale(3) rotate(-360deg);
-  }
+    &:hover {
+      transform: translateY(150%) scale(3) rotate(-360deg);
+    }
 
-    .logo {
+    &__logo {
       animation: spin 10s linear infinite;
     }
+  }
+}
 
 @keyframes spin {
   from {

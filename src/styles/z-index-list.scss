@@ -1,0 +1,21 @@
+/*
+*   Great overview of this technique here:
+*   https://medium.com/alistapart/sassier-z-index-management-for-complex-layouts-4540717a9488
+*
+*   The below code ensures z-indexes can be changed throughout the codebase
+*   without adverse effects, as any change to a single z-index property will automatically
+*   update every other one appropriately provided they are managed exclusively through the map below.
+*
+*   Each element in the map represents an individual stacking context and
+*   nested stacking contexts can also be created.
+*
+*   What you see is what you get; if one element appears higher than another in the list,
+*   that means it is higher within it's stacking context.
+*
+*   NOTE: When a list contains one item and there is no trailing comma,
+*   SASS doesn't interpret it as a list and may get the vaue wrong.
+*/
+$z-indexes: (
+    header: (),
+    quote: ()
+);

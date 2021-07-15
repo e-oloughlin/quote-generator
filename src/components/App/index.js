@@ -1,12 +1,11 @@
-import { Container } from '@material-ui/core';
 import Logo from '../Logo';
-import './App.css';
+import Quote from '../Quote';
+import './App.scss';
 
 const App = () => (
   <>
-    <Container maxWidth="sm">
-      <Logo />
-    </Container>
+    <Logo />
+    <Quote />
   </>
 );
 
