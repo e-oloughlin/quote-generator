@@ -1,9 +1,12 @@
 import React from 'react';
-import { Box, Container, Typography } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { Box, Container } from '@material-ui/core';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import './Quote.scss';
 
 const Quote = () => {
+  const quote = useSelector(state => state.value);
+
   return (
       <section className="quote-container">
         <Container maxWidth="sm">
@@ -18,9 +21,7 @@ const Quote = () => {
           >
             <p className="quote-container__quote">
               <FormatQuoteIcon sx={{ fontSize: 100 }} />
-              <p>
-                {`Kung Flu`}
-              </p>
+              <p>{quote}</p>
             </p>
           </Box>
         </Container>
