@@ -12,12 +12,16 @@
     display: inline-block;
     transition: transform 0.4s ease-in-out;
 
+    &__logo {
+      animation: spin 10s linear infinite;
+    }
+
     &:hover {
       transform: translateY(150%) scale(3) rotate(-360deg);
     }
 
-    &__logo {
-      animation: spin 10s linear infinite;
+    &:hover &__logo {
+      animation: spin-backwards 10s linear infinite;
     }
   }
 }
@@ -29,5 +33,15 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-backwards {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
   }
 }
