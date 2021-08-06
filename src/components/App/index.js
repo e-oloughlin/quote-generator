@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Logo from '../Logo';
 import Quote from '../Quote';
+import Header from '../Header';
 import { FETCH_QUOTE } from '../../actions/quote';
 import './App.scss';
 
@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      <Logo />
+      <Header />
       <Quote />
     </>
   );

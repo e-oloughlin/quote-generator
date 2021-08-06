@@ -21,7 +21,7 @@ const Quote = () => {
           >
             <p className="quote-container__quote">
               <FormatQuoteIcon sx={{ fontSize: 100 }} />
-              <p>{quote}</p>
+              <span className="quote-container__quote__text">{quote}</span>
             </p>
           </Box>
         </Container>
