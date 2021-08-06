@@ -1,11 +1,6 @@
 const initialState = {
-  value: 'Kung Flu',
+  value: '',
 };
-
-// {
-//   type: 'CHANGE_QUOTE',
-//   value: 'Hilary clin is stupid',
-// }
 
 const quote = (state = initialState, action) => {
   switch (action.type) {
@@ -15,7 +10,7 @@ const quote = (state = initialState, action) => {
       };
 
     default:
-      return initialState;
+      return state;
   };
 };
 

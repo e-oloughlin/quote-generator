@@ -5,7 +5,7 @@ import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import './Quote.scss';
 
 const Quote = () => {
-  const quote = useSelector(state => state.value);
+  const quote = useSelector(state => state.quote.value);
 
   return (
       <section className="quote-container">
