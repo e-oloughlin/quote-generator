@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import Quote from '../Quote';
 import Header from '../Header';
 import { fetchQuote } from '../../actions/quote';
-import './App.scss';
 
 const App = () => {
   const dispatch = useDispatch(); // <-- this returns a function
@@ -11,6 +10,7 @@ const App = () => {
   useEffect(() => {
     // start fetching a quote here (dispatching fetchQuote)
     dispatch(fetchQuote());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

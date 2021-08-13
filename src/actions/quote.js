@@ -9,15 +9,31 @@ export const FETCH_QUOTE_FAILURE = 'FETCH_QUOTE_FAILURE';
 // };
 
 export const fetchQuote = () => {
-  return (dispatch) => {
-    // all functionality goes here
-    // Tell the app we are going to fetch a quote
-    dispatch({
-      type: FETCH_QUOTE_START,
-    });
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: FETCH_QUOTE_START,
+      });
 
-    // fetch the quote from the API
-    // if it succeeds, save the quote inside our redux store
-    // if it fails, alert saying there was a failure
+      const url = 'https://api.quotable.io/random';
+      // fetch the quote from the API
+      const res = await fetch(url);
+      const newQuote = await res.json();
+      console.log('newQuote: ', newQuote);
+      const { content } = newQuote;
+      // if it succeeds, save the quote inside our redux store
+      dispatch({
+        type: FETCH_QUOTE_SUCCESS,
+        value: content,
+      })
+    } catch (err) {
+      console.error(err);
+
+      // if it fails, alert saying there was a failure
+      dispatch({
+        type: FETCH_QUOTE_FAILURE,
+        value: '',
+      })
+    }
   };
 };
