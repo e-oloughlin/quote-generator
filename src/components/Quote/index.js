@@ -1,20 +1,17 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { Box, Container, Button } from '@material-ui/core';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
-import { fetchQuote } from '../../actions/quote';
 import './Quote.scss';
 
 const Quote = () => {
-  const dispatch = useDispatch(); // <-- this returns a function
-  // const [disabled, setDisabled] = useState(false);
-  const onButtonClick = () => {
-    // start fetching a quote here (dispatching fetchQuote)
-    dispatch(fetchQuote());
-  };
+  let quote = "quote";
 
-  const quote = useSelector(state => state.quote.value);
-  const loading = useSelector(state => state.appState.loading);
+  // const url = 'https://api.quotable.io/random';
+  //     // fetch the quote from the API
+  //     const res = await fetch(url);
+  //     const newQuote = await res.json();
+  //     console.log('newQuote: ', newQuote);
+  //     const { content } = newQuote;
 
   return (
       <section className="quote-container">
@@ -40,8 +37,6 @@ const Quote = () => {
               className="quote-container__footer__button"
               size="large"
               color="primary"
-              onClick={onButtonClick}
-              disabled={loading}
             >
               Fetch Quote
             </Button>
